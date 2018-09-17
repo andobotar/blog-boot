@@ -1,0 +1,1 @@
+INSERT INTO orc (id, orc_name, orc_race_type, orc_kill_count, orc_weapon, horde_id) VALUES (1, "Béla", MOUNTAIN, 8, SWORD, null);
