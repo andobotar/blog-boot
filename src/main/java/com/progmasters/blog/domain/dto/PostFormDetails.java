@@ -9,30 +9,23 @@
  * Any dispute or claim arising out of the breach of these provisions shall be governed by and construed in accordance with the laws of Hungary.
  */
 
-package com.progmasters.mordor.dto;
+package com.progmasters.blog.domain.dto;
 
-import java.util.Map;
+public class PostFormDetails {
 
-public class OrcFormData {
-    private Map<String, String> weapons;
-    private Map<String, String> raceTypes;
-    private Map<String, String> hordes;
+    private String title;
+    private String postBody;
+    private String imgUrl;
 
-    public OrcFormData(Map<String, String> weapons, Map<String, String> raceTypes, Map<String, String> hordes) {
-        this.weapons = weapons;
-        this.raceTypes = raceTypes;
-        this.hordes = hordes;
+    public String getTitle() {
+        return title;
     }
 
-    public Map<String, String> getWeapons() {
-        return weapons;
+    public String getPostBody() {
+        return postBody;
     }
 
-    public Map<String, String> getRaceTypes() {
-        return raceTypes;
-    }
-
-    public Map<String, String> getHordes() {
-        return hordes;
+    public String getImgUrl() {
+        return imgUrl;
     }
 }

@@ -9,23 +9,27 @@
  * Any dispute or claim arising out of the breach of these provisions shall be governed by and construed in accordance with the laws of Hungary.
  */
 
-package com.progmasters.mordor.repository;
+package com.progmasters.blog.validator;
 
-import com.progmasters.mordor.domain.Horde;
-import com.progmasters.mordor.domain.Orc;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
+import com.progmasters.blog.domain.dto.CommentFormDetails;
+import org.springframework.stereotype.Component;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
-import java.util.List;
+@Component
+public class CommentFormDetailsValidator implements Validator {
 
-@Repository
-public interface OrcRepository extends JpaRepository<Orc, Long> {
-    List<Orc> findByOrderByKillCountDesc();
+    @Override
+    public boolean supports(Class<?> aClass) {
+        return CommentFormDetails.class.equals(aClass);
+    }
 
-    @Query("select o from Orc o where o.name <> '' and o.orcRaceType = 'URUK_HAI'")
-    List<Orc> findUrukHaiOrcsWithName();
+    @Override
+    public void validate(Object o, Errors errors) {
+        CommentFormDetails commentFormDetails = (CommentFormDetails) o;
 
-    List<Orc> findAllByHorde(Horde horde);
+        if (commentFormDetails.getCommentBody() == null || commentFormDetails.getCommentBody().isEmpty()) {
+            errors.rejectValue("commentBody", "commentFormDetails.commentBody.empty");
+        }
+    }
 }
-

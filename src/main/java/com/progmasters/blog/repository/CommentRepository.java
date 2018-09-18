@@ -9,16 +9,13 @@
  * Any dispute or claim arising out of the breach of these provisions shall be governed by and construed in accordance with the laws of Hungary.
  */
 
-package com.progmasters.mordor.repository;
+package com.progmasters.blog.repository;
 
-import com.progmasters.mordor.domain.Horde;
-import com.progmasters.mordor.domain.Orc;
+import com.progmasters.blog.domain.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
-public interface HordeRepository extends JpaRepository<Horde, Long> {
-
-    List<Horde> findAllByLeader(Orc orc);
+@Repository
+public interface CommentRepository extends JpaRepository<Comment, Long> {
 
 }

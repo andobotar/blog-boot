@@ -9,43 +9,23 @@
  * Any dispute or claim arising out of the breach of these provisions shall be governed by and construed in accordance with the laws of Hungary.
  */
 
-package com.progmasters.mordor.dto;
+package com.progmasters.blog.domain.dto;
 
-import com.progmasters.mordor.domain.Horde;
+public class CommentFormDetails {
 
-public class HordeListItem {
+    private Long postId;
+    private String author;
+    private String commentBody;
 
-    private Long id;
-
-    private String hordeName;
-
-    private Integer orcsCount;
-
-    private String leaderName;
-
-    public HordeListItem(Horde horde) {
-        this.id = horde.getId();
-        this.hordeName = horde.getHordeName();
-        this.orcsCount = horde.getOrcs().size();
-        if (horde.getLeader() != null) {
-            this.leaderName = horde.getLeader().getName();
-        }
+    public Long getPostId() {
+        return postId;
     }
 
-    public Long getId() {
-        return id;
+    public String getAuthor() {
+        return author;
     }
 
-    public String getHordeName() {
-        return hordeName;
+    public String getCommentBody() {
+        return commentBody;
     }
-
-    public Integer getOrcsCount() {
-        return orcsCount;
-    }
-
-    public String getLeaderName() {
-        return leaderName;
-    }
-
 }

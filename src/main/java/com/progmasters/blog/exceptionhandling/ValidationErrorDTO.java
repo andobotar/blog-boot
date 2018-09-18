@@ -9,12 +9,13 @@
  * Any dispute or claim arising out of the breach of these provisions shall be governed by and construed in accordance with the laws of Hungary.
  */
 
-package com.progmasters.mordor.exception;
+package com.progmasters.blog.exceptionhandling;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ValidationErrorDTO {
+
     private List<FieldErrorDTO> fieldErrors = new ArrayList<>();
 
     public void addFieldError(String path, String message) {
@@ -33,7 +34,6 @@ public class ValidationErrorDTO {
     public static class FieldErrorDTO {
 
         private String field;
-
         private String message;
 
         public FieldErrorDTO(String field, String message) {
